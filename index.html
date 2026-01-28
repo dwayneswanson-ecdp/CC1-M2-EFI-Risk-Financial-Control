@@ -6,10 +6,15 @@
   <meta name="google" content="notranslate">
   <meta http-equiv="Content-Language" content="en">
   <meta name="robots" content="no-translate">
-  <title>CC - English -</title>
+  <title>CC1 - English — Risk & Financial Control</title>
 
   <!-- Quill CSS -->
   <link href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" rel="stylesheet">
+  
+  <!-- Google Fonts - Inter for modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* Anti-copy / anti-translate behaviour – leave as is for exam security */
@@ -23,17 +28,21 @@
     }
     * { translate: none !important; }
 
-    /* Global body */
+    /* ============================================
+       MODERN UI – Shared across exams
+       ============================================ */
+    
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
-      background: #f5f7fb;
-      color: #222;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: #f8f9fc;
+      color: #1e293b;
       font-size: 16px;
-      line-height: 1.6;
-      padding-top: 90px; /* space for fixed header */
+      line-height: 1.7;
+      padding-top: 85px;
+      font-weight: 400;
     }
 
-    /* Fixed exam header */
+    /* Modern fixed header with glassmorphism */
     header {
       position: fixed;
       top: 0;
@@ -44,75 +53,91 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 1.5rem;
 
-      background: #ffffffcc;
-      backdrop-filter: blur(10px);
-      color: #111827;
-      padding: 14px 24px;
-      border-bottom: 1px solid #e1e4f0;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      color: #1e293b;
+      padding: 18px 32px;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
     }
 
     header h1 {
       margin: 0;
-      font-size: 1.2rem;
-      letter-spacing: 0.03em;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
       font-weight: 700;
-      color: #2643e9;
+      color: #2563eb;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    /* Timer on the right */
+    /* Modern timer with gradient background */
     #timer {
+      display: none;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 1rem;
       text-align: right;
-      color: #111827;
-      padding: 6px 14px;
+      padding: 10px 20px;
       border-radius: 999px;
-      border: 1px solid #4b5563;
-      background: #ffffff;
+      border: 2px solid #2563eb;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #ffffff;
       white-space: nowrap;
-      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      letter-spacing: 0.02em;
+      transition: all 0.3s ease;
     }
 
-    /* Main exam wrapper */
     main {
-      max-width: 900px;
-      margin: 24px auto 40px;
+      max-width: 960px;
+      margin: 32px auto 60px;
       background: #ffffff;
-      padding: 32px 32px 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      padding: 48px 48px 56px;
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(226, 232, 240, 0.8);
     }
 
-    /* Reusable inner cards (intro, confirmation, etc.) */
     .card {
       background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
-      padding: 28px 28px 32px;
-      max-width: 640px;
-      margin: 32px auto;
+      border-radius: 20px;
+      box-shadow: 0 6px 30px rgba(15, 23, 42, 0.08);
+      padding: 40px 40px 48px;
+      max-width: 680px;
+      margin: 40px auto;
       text-align: left;
-      border: 1px solid #e5e7eb;
+      border: 1px solid rgba(226, 232, 240, 0.8);
     }
 
     .card h2 {
-      color: #111827;
+      color: #0f172a;
       margin-top: 0;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       text-align: center;
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #475569;
     }
 
     label {
       display: block;
-      margin: 12px 0 8px;
-      font-weight: bold;
+      margin: 20px 0 10px;
+      font-weight: 600;
       font-size: 0.95rem;
-      color: #111827;
+      color: #0f172a;
+      letter-spacing: -0.01em;
     }
 
     input[type="text"],
@@ -120,69 +145,103 @@
     select,
     textarea {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
+      padding: 14px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
       font-size: 0.95rem;
-      font-family: inherit;
+      font-family: 'Inter', inherit;
       box-sizing: border-box;
       background: #ffffff;
+      color: #1e293b;
+      transition: all 0.2s ease;
+      font-weight: 400;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     textarea {
       resize: vertical;
-      min-height: 80px;
+      min-height: 100px;
+      line-height: 1.6;
     }
 
     select {
       white-space: normal;
       word-wrap: break-word;
-      padding: 8px;
+      padding: 12px 16px;
       background: #ffffff;
+      cursor: pointer;
     }
 
     button {
-      background: #2643e9;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
       color: #fff;
       border: none;
-      padding: 10px 24px;
+      padding: 14px 32px;
       border-radius: 999px;
       cursor: pointer;
       font-size: 0.95rem;
       font-weight: 600;
-      font-family: inherit;
+      font-family: 'Inter', inherit;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+      transition: all 0.3s ease;
+      letter-spacing: 0.01em;
     }
+    
     button:hover {
-      filter: brightness(0.96);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    button:active {
+      transform: translateY(0);
     }
 
     .btn-row {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
-      margin-top: 16px;
+      margin-top: 24px;
     }
     .btn-row.center { justify-content: center; }
-    .btn-row.right  { justify-content: flex-end; }
+    .btn-row.right { justify-content: flex-end; }
 
     .btn-light {
-      background: #eef2ff;
-      color: #2643e9;
-      border: 1px solid #c7d2fe;
+      background: #f1f5f9;
+      color: #2563eb;
+      border: 2px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
     }
     .btn-light:hover {
-      background: #e0e7ff;
+      background: #e2e8f0;
+      border-color: #cbd5e1;
     }
 
-    ol {
-      padding-left: 20px;
+    ol, ul {
+      padding-left: 24px;
+      margin: 16px 0;
     }
-    ol li {
+    
+    ol li, ul li {
       margin-bottom: 14px;
       font-size: 0.95rem;
+      line-height: 1.7;
+      color: #475569;
     }
 
-    /* STEP / PART VISIBILITY – functional */
+    hr {
+      margin: 28px 0;
+      border: none;
+      border-top: 2px solid #f1f5f9;
+    }
+
     #exam,
     #confirm,
     #partA,
@@ -194,103 +253,170 @@
       display: block;
     }
 
-    /* Quill editor container */
     .editor-card {
-      border: 1px solid #e3e6ee;
-      border-radius: 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
-      margin-top: 12px;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+      margin-top: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .editor-card:focus-within {
+      border-color: #2563eb;
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12);
     }
 
     .ql-toolbar.ql-snow {
       border: none;
-      border-bottom: 1px solid #e3e6ee;
-      background: #f9fbff;
+      border-bottom: 2px solid #f1f5f9;
+      background: #f8f9fc;
+      padding: 12px;
+    }
+
+    .ql-toolbar button,
+    .ql-toolbar .ql-picker {
+      box-shadow: none !important;
+    }
+
+    .ql-toolbar button:hover,
+    .ql-toolbar .ql-picker:hover {
+      background: #e2e8f0;
+    }
+
+    .ql-toolbar button.ql-active {
+      background: #dbeafe;
+      color: #2563eb;
     }
 
     .ql-container.ql-snow {
       border: none;
-      min-height: 260px;
+      min-height: 300px;
       background: #ffffff;
     }
 
     .ql-editor {
-      min-height: 240px;
+      min-height: 280px;
       font-size: 0.95rem;
+      font-family: 'Inter', inherit;
+      line-height: 1.7;
+      padding: 20px;
     }
 
     .muted {
-      color: #6b7280;
+      color: #64748b;
       font-size: 0.9rem;
+      line-height: 1.6;
     }
 
-    /* Name row layout */
     .name-row {
       display: flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
     }
     .name-row .field {
       flex: 1 1 0;
+      min-width: 200px;
     }
 
-    /* Visually force uppercase display on last name */
     .upper {
       text-transform: uppercase;
     }
 
-    /* === Part A – Vocabulary Matching layout === */
+    /* === Part A – Vocabulary Matching === */
     #partA h2 {
       text-align: left;
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #0f172a;
     }
 
     .partA-intro {
-      font-size: 0.9rem;
-      color: #6b7280;
-      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-bottom: 24px;
+      line-height: 1.6;
     }
 
     #partA ol {
       margin: 0;
-      padding-left: 1.5rem;
+      padding-left: 2rem;
+      counter-reset: item;
     }
 
     #partA ol li {
-      margin-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      transition: all 0.2s ease;
+    }
+    
+    #partA ol li:hover {
+      background: #f8f9fc;
+      margin-left: -12px;
+      margin-right: -12px;
+      padding-left: 12px;
+      padding-right: 12px;
+      border-radius: 12px;
+    }
+    
+    #partA ol li:last-child {
+      border-bottom: none;
+    }
+
+    .definition-preview {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #64748b;
+      font-style: italic;
+      line-height: 1.5;
     }
 
     .vocab-row {
       display: grid;
-      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-      column-gap: 18px;
+      grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+      column-gap: 24px;
       align-items: center;
     }
 
     .vocab-term {
-      font-size: 0.95rem;
-      color: #111827;
-      font-weight: 500;
+      font-size: 1rem;
+      color: #0f172a;
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
 
     .vocab-select {
       margin: 0;
     }
 
-    /* Blur background when exit warning is active */
+    /* Part B section styling */
+    #partB h2 {
+      text-align: left;
+      margin-bottom: 8px;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    #partB .muted strong {
+      color: #475569;
+      font-weight: 600;
+    }
+
     body.exit-lock {
       overflow: hidden;
     }
     body.exit-lock header,
     body.exit-lock main {
-      filter: blur(6px);
+      filter: blur(8px);
       pointer-events: none;
     }
 
     body.overlay-active main,
     body.overlay-active header {
-      filter: blur(5px);
+      filter: blur(8px);
       pointer-events: none;
     }
 
@@ -298,15 +424,125 @@
       overflow: hidden;
     }
 
-    /* Mobile layout tweaks */
-    @media (max-width: 720px) {
-      .vocab-row {
-        grid-template-columns: 1fr;
-        row-gap: 6px;
+    /* Exit overlay */
+    #exitOverlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #exitOverlay > div {
+      background: #ffffff;
+      max-width: 480px;
+      width: 92%;
+      border-radius: 24px;
+      padding: 32px 32px 28px;
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.4);
+      font-family: 'Inter', system-ui, sans-serif;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { 
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @media (max-width: 720px) {
+    #exitOverlay h2 {
+      margin: 0 0 12px 0;
+      font-size: 1.5rem;
+      color: #0f172a;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    #exitOverlayStrike {
+      margin: 8px 0 12px 0;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #dc2626;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    #exitOverlayMessage {
+      margin: 0 0 16px 0;
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    #exitOverlayCountdownText {
+      margin: 16px 0 8px 0;
+      font-size: 0.9rem;
+      color: #64748b;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    #exitOverlayCountdownDigits {
+      font-size: 3.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin: 0 0 24px 0;
+      color: #dc2626;
+      font-family: 'Inter', monospace;
+      letter-spacing: -0.02em;
+    }
+
+    #exitOverlay button {
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #exitOverlayStay {
+      border: 2px solid #cbd5e1;
+      background: #f1f5f9;
+      color: #2563eb;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+    }
+
+    #exitOverlayStay:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+      transform: translateY(-1px);
+    }
+
+    #exitOverlayLeave {
+      border: none;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+    }
+
+    #exitOverlayLeave:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    }
+
+    @media (max-width: 768px) {
       body {
         padding-top: 100px;
       }
@@ -314,24 +550,35 @@
       header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 6px;
-        padding-inline: 16px;
+        gap: 10px;
+        padding-inline: 20px;
       }
 
       #timer {
         align-self: flex-end;
+        font-size: 0.9rem;
+        padding: 8px 16px;
       }
 
       main {
-        margin: 16px auto 32px;
-        padding: 24px 16px 32px;
-        border-radius: 12px;
+        margin: 20px auto 40px;
+        padding: 32px 24px 40px;
+        border-radius: 16px;
       }
 
       .card {
-        margin: 24px auto;
-        padding: 20px 18px 24px;
+        margin: 32px auto;
+        padding: 32px 24px 40px;
         max-width: 100%;
+      }
+
+      .vocab-row {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+      }
+
+      .name-row .field {
+        min-width: 100%;
       }
     }
   </style>
@@ -339,79 +586,97 @@
 <body>
 
   <header>
-    <h1 id="examTitleHeader">CC - English — Risk &amp; Financial Control</h1>
+    <h1 id="examTitleHeader">CC1 - English — Risk &amp; Financial Control</h1>
     <div id="timer"></div>
   </header>
 
   <main>
-    <!-- Translation sentinel for anti-translate detection -->
     <span id="langSentinel" style="display:none;">
       This reference sentence is used only to detect automatic translation of the exam page.
     </span>
-
+    
     <!-- LOGIN -->
     <section id="login" class="card">
-      <h2>Commencer l'épreuve</h2>
-      <p>
-        Merci de renseigner vos informations pour commencer.
-        Une fois l’épreuve lancée, vous disposerez de <b>40 minutes</b> pour la compléter.
+      <h2 style="font-size: 2rem; margin-bottom: 16px; text-align: center;">Commencer l'épreuve</h2>
+      <p style="text-align: center; font-size: 1rem; color: #64748b; margin-bottom: 32px;">
+        Merci de renseigner vos informations pour commencer. Une fois l'épreuve lancée,
+        vous disposerez de <b style="color: #2563eb;">60 minutes</b> pour la compléter.
       </p>
 
-      <label>Nom et prénom :</label>
-      <div class="name-row">
-        <div class="field">
-          <input type="text" id="studentLastName" class="upper" placeholder="NOM (en majuscules)" required>
+      <div style="background: #f8f9fc; padding: 24px; border-radius: 12px; margin-bottom: 24px;">
+        <label>Nom et prénom</label>
+        <div class="name-row">
+          <div class="field">
+            <input type="text" id="studentLastName" class="upper" placeholder="NOM" required>
+          </div>
+          <div class="field">
+            <input type="text" id="studentFirstName" placeholder="Prénom" required>
+          </div>
         </div>
-        <div class="field">
-          <input type="text" id="studentFirstName" placeholder="Prénom" required>
-        </div>
+
+        <label>Adresse e-mail</label>
+        <input type="email" id="studentEmail" placeholder="votre.email@example.com" required>
+
+        <label>Groupe</label>
+        <select id="groupSelect" required>
+          <option value="">Sélectionner votre groupe</option>
+          <option value="M2 EFI G1">M2 EFI G1</option>
+          <option value="M2 EFI G2">M2 EFI G2</option>
+          <option value="M2 EFI G3">M2 EFI G3</option>
+        </select>
+
+        <label>Code de classe</label>
+        <input type="text" id="classCode" placeholder="Code fourni par l'enseignant" required>
       </div>
 
-      <label>Adresse e-mail :</label>
-      <input type="email" id="studentEmail" required>
-
-    <label>Groupe :</label>
-<select id="groupSelect" required>
-  <option value="">Sélectionner votre groupe</option>
-  <option value="M2 EFI G1">M2 EFI G1</option>
-  <option value="M2 EFI G2">M2 EFI G2</option>
-  <option value="M2 EFI G3">M2 EFI G3</option>
-</select>
-
-      <label>Code de classe :</label>
-      <input type="text" id="classCode" required>
-
-      <div class="btn-row center">
-        <button id="startBtn" type="button">Commencer</button>
+      <div class="btn-row center" style="margin-top: 32px;">
+        <button id="startBtn" type="button" style="font-size: 1.05rem; padding: 16px 48px;">Commencer l'épreuve</button>
       </div>
     </section>
 
     <!-- CONFIRM -->
     <section id="confirm" class="card">
-      <h2>Avant de commencer l’épreuve</h2>
+      <h2 style="font-size: 2rem; margin-bottom: 24px;">Avant de commencer l'épreuve</h2>
 
-      <p class="muted"><strong>Comment fonctionne l’épreuve&nbsp;?</strong></p>
-      <ul class="muted">
-        <li>L’épreuve se déroule en <strong>plein écran</strong>.</li>
-        <li>Si vous quittez la fenêtre ou changez d’application, un <strong>message d’avertissement</strong> apparaît.</li>
-        <li>Vous avez <strong>15&nbsp;secondes</strong> pour revenir, sinon l’épreuve est arrêtée et devra être recommencée.</li>
-        <li>Après <strong>3 évènements techniques</strong> (sortie du plein écran, changement de fenêtre, etc.), l’épreuve est <strong>envoyée automatiquement</strong> à l’enseignant.</li>
-        <li>Tous ces évènements sont enregistrés dans un <strong>récapitulatif technique de session</strong> joint à votre copie.</li>
-      </ul>
+      <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; border-radius: 8px; margin-bottom: 28px;">
+        <p style="margin: 0 0 12px 0; font-weight: 600; color: #92400e; font-size: 1rem;">Comment fonctionne l'épreuve ?</p>
+        <ul style="margin: 0; padding-left: 20px; color: #78350f;">
+          <li style="margin-bottom: 8px;">L'épreuve se déroule en <strong>plein écran</strong>.</li>
+          <li style="margin-bottom: 8px;">Si vous quittez la fenêtre ou changez d'application, un <strong>message d'avertissement</strong> apparaît.</li>
+          <li style="margin-bottom: 8px;">Vous avez <strong>15&nbsp;secondes</strong> pour revenir, sinon l'épreuve est arrêtée et devra être recommencée.</li>
+          <li style="margin-bottom: 8px;">Après <strong>3 évènements techniques</strong> (sortie du plein écran, changement de fenêtre, etc.), l'épreuve est <strong>envoyée automatiquement</strong> à l'enseignant.</li>
+          <li style="margin-bottom: 0;">Tous ces évènements sont enregistrés dans un <strong>récapitulatif technique de session</strong> joint à votre copie.</li>
+        </ul>
+      </div>
 
-      <hr style="margin:18px 0; border:none; border-top:1px solid #e5e7eb;">
+      <div style="margin-bottom: 28px;">
+        <p style="margin: 0 0 16px 0; font-weight: 600; color: #0f172a; font-size: 1.1rem;">Vérifiez vos informations</p>
+        
+        <div style="display: grid; gap: 12px;">
+          <div style="background: #f8f9fc; padding: 16px 20px; border-radius: 10px; border: 2px solid #e2e8f0;">
+            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Nom &amp; Prénom</div>
+            <div style="font-size: 1.05rem; color: #0f172a; font-weight: 600;" id="confirmName"></div>
+          </div>
 
-      <p class="muted"><strong>Vérifiez vos informations</strong></p>
-      <p><b>Nom &amp; prénom :</b> <span id="confirmName"></span></p>
-      <p><b>Email :</b> <span id="confirmEmail"></span></p>
-      <p><b>Groupe :</b> <span id="confirmGroup"></span></p>
-      <p class="muted">
-        Si quelque chose n’est pas correct, cliquez sur «&nbsp;Modifier&nbsp;» pour revenir à l’écran précédent.
-      </p>
+          <div style="background: #f8f9fc; padding: 16px 20px; border-radius: 10px; border: 2px solid #e2e8f0;">
+            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Email</div>
+            <div style="font-size: 1.05rem; color: #0f172a; font-weight: 600;" id="confirmEmail"></div>
+          </div>
 
-      <div class="btn-row">
+          <div style="background: #f8f9fc; padding: 16px 20px; border-radius: 10px; border: 2px solid #e2e8f0;">
+            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Groupe</div>
+            <div style="font-size: 1.05rem; color: #0f172a; font-weight: 600;" id="confirmGroup"></div>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top: 16px; font-size: 0.9rem;">
+          Si quelque chose n'est pas correct, cliquez sur «&nbsp;Modifier&nbsp;» pour revenir à l'écran précédent.
+        </p>
+      </div>
+
+      <div class="btn-row" style="justify-content: space-between; margin-top: 32px;">
         <button type="button" class="btn-light" id="confirmBackBtn">← Modifier</button>
-        <button type="button" id="confirmBeginBtn">Commencer l'épreuve →</button>
+        <button type="button" id="confirmBeginBtn" style="font-size: 1.05rem; padding: 14px 40px;">Commencer l'épreuve →</button>
       </div>
     </section>
 
@@ -420,12 +685,17 @@
       <form id="examForm">
         <input type="hidden" name="studentName" id="studentNameField">
         <input type="hidden" name="studentEmail" id="studentEmailField">
-        <input type="hidden" name="classCode"  id="classCodeField">
-        <input type="hidden" name="groupName"  id="groupNameField">
+        <input type="hidden" name="classCode" id="classCodeField">
+        <input type="hidden" name="groupName" id="groupNameField">
 
         <!-- PART A -->
         <div id="partA" class="active">
-          <h2>Part A – Vocabulary Matching</h2>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h2 style="margin: 0;">Part A – Vocabulary Matching</h2>
+            <div id="partAProgress" style="font-size: 0.95rem; color: #64748b; font-weight: 600; padding: 8px 16px; background: #f1f5f9; border-radius: 999px;">
+              <span id="partAAnswered">0</span>/10 answered
+            </div>
+          </div>
           <p class="partA-intro">
             Match each risk &amp; financial control concept with the correct definition
             by selecting an option in the dropdown list.
@@ -448,6 +718,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q1"></div>
               </div>
             </li>
 
@@ -467,6 +738,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q2"></div>
               </div>
             </li>
 
@@ -486,6 +758,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q3"></div>
               </div>
             </li>
 
@@ -505,6 +778,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q4"></div>
               </div>
             </li>
 
@@ -524,6 +798,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q5"></div>
               </div>
             </li>
 
@@ -543,6 +818,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q6"></div>
               </div>
             </li>
 
@@ -562,6 +838,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q7"></div>
               </div>
             </li>
 
@@ -581,6 +858,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q8"></div>
               </div>
             </li>
 
@@ -600,6 +878,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q9"></div>
               </div>
             </li>
 
@@ -619,6 +898,7 @@
                   <option>Any party affected by or interested in the company (shareholders, employees, customers, suppliers, lenders, regulators, communities).</option>
                   <option>Adhering to laws, regulations, standards, and internal policies</option>
                 </select>
+                <div class="definition-preview" data-for="q10"></div>
               </div>
             </li>
           </ol>
@@ -666,6 +946,15 @@
             <div id="editor"></div>
           </div>
 
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding: 0 4px;">
+            <div id="wordCount" style="font-size: 0.9rem; color: #64748b;">
+              Word count: <span style="font-weight: 600; color: #475569;">0</span>
+            </div>
+            <div style="font-size: 0.85rem; color: #94a3b8; font-style: italic;">
+              Auto-saved
+            </div>
+          </div>
+
           <div class="btn-row">
             <button type="button" class="btn-light" id="toPartA">← Retour à la partie A</button>
             <button type="submit">Envoyer l'épreuve</button>
@@ -676,101 +965,46 @@
   </main>
 
   <!-- Exit warning overlay -->
-  <div id="exitOverlay" style="
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(15,23,42,0.80);
-    backdrop-filter:blur(6px);
-    z-index:2000;
-    align-items:center;
-    justify-content:center;
-  ">
-    <div style="
-      background:#ffffff;
-      max-width:420px;
-      width:90%;
-      border-radius:16px;
-      padding:20px 22px 18px;
-      box-shadow:0 18px 45px rgba(15,23,42,0.25);
-      font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    ">
-      <h2 style="margin:0 0 8px 0; font-size:1rem; color:#111827;">
-        Quitter l’épreuve ?
-      </h2>
-      <div id="exitOverlayStrike" style="
-        margin:4px 0 6px 0;
-        font-size:1.5rem;
-        font-weight:700;
-        color:#b91c1c;
-        letter-spacing:0.06em;
-        text-transform:uppercase;
-        text-align:left;
-      ">
-      </div>
-      <p id="exitOverlayMessage" style="margin:0 0 8px 0; font-size:0.9rem; color:#4b5563;">
-        Vous êtes sur le point de quitter l’écran de l’épreuve.
+  <div id="exitOverlay">
+    <div>
+      <h2>Quitter l'épreuve ?</h2>
+      <div id="exitOverlayStrike"></div>
+      <p id="exitOverlayMessage">
+        Vous êtes sur le point de quitter l'écran de l'épreuve.
         Si vous continuez, votre épreuve sera effacée.
       </p>
 
-      <p id="exitOverlayCountdownText" style="margin:0 0 4px 0; font-size:0.9rem; color:#6b7280; text-align:center;">
-        Vous avez 15&nbsp;secondes pour rester dans l’épreuve avant qu’elle ne soit interrompue.
+      <p id="exitOverlayCountdownText">
+        Vous avez 15&nbsp;secondes pour rester dans l'épreuve avant qu'elle ne soit interrompue.
       </p>
-      <div id="exitOverlayCountdownDigits" style="
-        font-size:2.6rem;
-        font-weight:700;
-        text-align:center;
-        margin:0 0 16px 0;
-        color:#111827;
-      ">
-        15
-      </div>
+      <div id="exitOverlayCountdownDigits">15</div>
 
-      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
-        <button type="button" id="exitOverlayStay" style="
-          padding:8px 16px;
-          border-radius:999px;
-          border:1px solid #c7d2fe;
-          background:#eef2ff;
-          color:#2643e9;
-          font-size:0.9rem;
-          font-weight:600;
-          cursor:pointer;
-        ">
-          Rester dans l’épreuve
+      <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:8px;">
+        <button type="button" id="exitOverlayStay">
+          Rester dans l'épreuve
         </button>
-        <button type="button" id="exitOverlayLeave" style="
-          padding:8px 16px;
-          border-radius:999px;
-          border:none;
-          background:#b91c1c;
-          color:#fff;
-          font-size:0.9rem;
-          font-weight:600;
-          cursor:pointer;
-        ">
+        <button type="button" id="exitOverlayLeave">
           Quitter et effacer
         </button>
       </div>
     </div>
   </div>
 
-  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>
 
   <script>
     // ----- Global configuration for this exam -----
-  const EXAM_CONFIG = {
-  examId: "M2MD_CC1_2025",
-  classCode: "BLANK",        // <-- put real code here before exam
-  debugCode: "DEBUG",
-  examTitleBase: "CC1 - English — Risk & Financial Control",
-  allowedGroups: ["M2 EFI G1", "M2 EFI G2", "M2 EFI G3"],
-  timeLimitMinutes: 60,
-  emailSubjectTemplate: "CC1 - English — Risk & Financial Control  (GROUP) – (NAME)",
-  classLabel: "M2EFI"
-};
+    const EXAM_CONFIG = {
+      examId: "M2EFI_CC1_2025",
+      classCode: "BLANK",        // <-- put real code here before exam
+      debugCode: "DEBUG",
+      examTitleBase: "CC1 - English — Risk & Financial Control",
+      allowedGroups: ["M2 EFI G1", "M2 EFI G2", "M2 EFI G3"],
+      timeLimitMinutes: 60,
+      emailSubjectTemplate: "CC1 - English — Risk & Financial Control (GROUP) – (NAME)",
+      classLabel: "M2EFI"
+    };
 
     const DEADLINE_KEY = "examDeadline_" + EXAM_CONFIG.examId;
     let examDeadline = null;
@@ -779,10 +1013,9 @@
     let isMobile = false;
     let safeBlurUntil = 0;
 
-    // Anti-cheat counters + countdown
     let violationCount = 0;
-    const MAX_VIOLATIONS  = 3;
-    const MAX_WARNINGS    = MAX_VIOLATIONS - 1;
+    const MAX_VIOLATIONS = 3;
+    const MAX_WARNINGS = MAX_VIOLATIONS - 1;
     let exitCountdownTimer = null;
     let exitSecondsRemaining = 0;
 
@@ -807,7 +1040,7 @@
       }
     })();
 
-    // Correct answers + word list (Part A)
+    // Correct answers + word list (Part A) – Risk & Financial Control
     const correctAnswers = {
       q1: "An independent examination of a company’s accounts, processes, and controls to give reasonable assurance that the financial statements are free from misstatement.",
       q2: "The system of rules, roles, and processes used to direct and control a company",
@@ -834,7 +1067,7 @@
       "Compliance"
     ];
 
-    // Create Quill lazily (only when Part B is shown)
+    // Create Quill lazily
     function ensureQuill() {
       if (quill) return;
 
@@ -857,12 +1090,17 @@
         });
       });
 
+      // Word count tracking
+      quill.on('text-change', function() {
+        updateWordCount();
+      });
+
       // Lock down copy/paste etc. inside editor
       root.addEventListener("contextmenu", e => e.preventDefault());
-      root.addEventListener("paste",      e => e.preventDefault());
-      root.addEventListener("copy",       e => e.preventDefault());
-      root.addEventListener("cut",        e => e.preventDefault());
-      root.addEventListener("drop",       e => e.preventDefault());
+      root.addEventListener("paste", e => e.preventDefault());
+      root.addEventListener("copy", e => e.preventDefault());
+      root.addEventListener("cut", e => e.preventDefault());
+      root.addEventListener("drop", e => e.preventDefault());
       root.addEventListener("keydown", e => {
         if ((e.ctrlKey || e.metaKey) && ["c", "v", "x", "a"].includes(e.key.toLowerCase())) {
           e.preventDefault();
@@ -870,11 +1108,11 @@
       });
     }
 
-    // Randomise options but keep first option as placeholder
+    // Randomise options but keep first option
     function randomizeSelectsKeepFirst() {
       document.querySelectorAll("#partA select").forEach(sel => {
         const opts = Array.from(sel.options);
-        const first = opts.shift(); // placeholder
+        const first = opts.shift();
         for (let i = opts.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
           [opts[i].text, opts[j].text] = [opts[j].text, opts[i].text];
@@ -886,7 +1124,7 @@
       });
     }
 
-    // Randomise question order in Part A
+    // Randomise question order
     function randomizeQuestionOrder() {
       const list = document.querySelector("#partA ol");
       if (!list) return;
@@ -898,6 +1136,47 @@
       }
 
       items.forEach(li => list.appendChild(li));
+    }
+
+    // Definition previews under selects
+    function initDefinitionPreviews() {
+      document.querySelectorAll('#partA select').forEach(sel => {
+        const name = sel.name;
+        const preview = document.querySelector(
+          `.definition-preview[data-for="${name}"]`
+        );
+        if (!preview) return;
+
+        const update = () => {
+          const opt = sel.options[sel.selectedIndex];
+          const text = opt ? opt.text : "";
+
+          if (!opt || sel.selectedIndex === 0) {
+            preview.textContent = "";
+            sel.title = "";
+            return;
+          }
+
+          preview.textContent = text;
+          sel.title = text;
+        };
+
+        sel.addEventListener("change", update);
+        update();
+      });
+    }
+
+    // Word count
+    function updateWordCount() {
+      if (!quill) return;
+      
+      const text = quill.getText().trim();
+      const words = text.length > 0 ? text.split(/\s+/).filter(word => word.length > 0).length : 0;
+      
+      const wordCountEl = document.querySelector("#wordCount span");
+      if (wordCountEl) {
+        wordCountEl.textContent = words;
+      }
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -913,10 +1192,11 @@
         e.preventDefault();
       }, { capture: true });
 
-      // Detect Safari and block exam on this browser
+      // Optional Safari block switch
+      const BLOCK_SAFARI = false;
       const isSafari = /^((?!chrome|crios|fxios|android).)*safari/i.test(ua);
 
-      if (isSafari) {
+      if (isSafari && BLOCK_SAFARI) {
         const main = document.querySelector("main");
         if (main) {
           main.innerHTML = `
@@ -926,11 +1206,11 @@
                 <span>Navigateur non pris en charge</span>
               </h2>
               <p>
-                Pour des raisons techniques, cette épreuve en ligne n’est pas disponible sur
+                Pour des raisons techniques, cette épreuve en ligne n'est pas disponible sur
                 <strong>Safari</strong>.
               </p>
               <p>
-                Merci d’ouvrir ce lien dans l’un des navigateurs suivants&nbsp;:
+                Merci d'ouvrir ce lien dans l'un des navigateurs suivants&nbsp;:
               </p>
               <ul>
                 <li><strong>Google Chrome</strong></li>
@@ -938,8 +1218,8 @@
                 <li><strong>Mozilla Firefox</strong></li>
               </ul>
               <p class="muted">
-                Si vous voyez encore ce message alors que vous utilisez déjà l’un de ces navigateurs,
-                merci d’en informer immédiatement votre enseignant.
+                Si vous voyez encore ce message alors que vous utilisez déjà l'un de ces navigateurs,
+                merci d'en informer immédiatement votre enseignant.
               </p>
             </section>
           `;
@@ -947,7 +1227,7 @@
 
         const timerEl = document.getElementById("timer");
         if (timerEl) timerEl.textContent = "";
-        return; // stop here on Safari
+        return;
       }
 
       // EmailJS init
@@ -961,53 +1241,50 @@
         }
       }
 
-      // DOM Elements
-      const login       = document.getElementById("login");
-      const confirmSec  = document.getElementById("confirm");
-      const exam        = document.getElementById("exam");
+      const login = document.getElementById("login");
+      const confirmSec = document.getElementById("confirm");
+      const exam = document.getElementById("exam");
       const titleHeader = document.getElementById("examTitleHeader");
 
       if (titleHeader) {
         titleHeader.textContent = EXAM_CONFIG.examTitleBase;
       }
 
-      const startBtn         = document.getElementById("startBtn");
-      const confirmBackBtn   = document.getElementById("confirmBackBtn");
-      const confirmBeginBtn  = document.getElementById("confirmBeginBtn");
+      const startBtn = document.getElementById("startBtn");
+      const confirmBackBtn = document.getElementById("confirmBackBtn");
+      const confirmBeginBtn = document.getElementById("confirmBeginBtn");
 
-      const confirmName   = document.getElementById("confirmName");
-      const confirmEmail  = document.getElementById("confirmEmail");
-      const confirmGroup  = document.getElementById("confirmGroup");
+      const confirmName = document.getElementById("confirmName");
+      const confirmEmail = document.getElementById("confirmEmail");
+      const confirmGroup = document.getElementById("confirmGroup");
 
-      const partA         = document.getElementById("partA");
-      const partB         = document.getElementById("partB");
-      const toPartA       = document.getElementById("toPartA");
-      const toPartB       = document.getElementById("toPartB");
+      const partA = document.getElementById("partA");
+      const partB = document.getElementById("partB");
+      const toPartA = document.getElementById("toPartA");
+      const toPartB = document.getElementById("toPartB");
 
-      const timerDisplay  = document.getElementById("timer");
-      const form          = document.getElementById("examForm");
+      const timerDisplay = document.getElementById("timer");
+      const form = document.getElementById("examForm");
 
       const studentFirstNameInput = document.getElementById("studentFirstName");
-      const studentLastNameInput  = document.getElementById("studentLastName");
-      const studentEmailInput     = document.getElementById("studentEmail");
-      const classCodeInput        = document.getElementById("classCode");
-      const groupSelect           = document.getElementById("groupSelect");
+      const studentLastNameInput = document.getElementById("studentLastName");
+      const studentEmailInput = document.getElementById("studentEmail");
+      const classCodeInput = document.getElementById("classCode");
+      const groupSelect = document.getElementById("groupSelect");
 
       const studentNameField = document.getElementById("studentNameField");
-      const studentEmailField= document.getElementById("studentEmailField");
-      const classCodeField   = document.getElementById("classCodeField");
-      const groupNameField   = document.getElementById("groupNameField");
+      const studentEmailField = document.getElementById("studentEmailField");
+      const classCodeField = document.getElementById("classCodeField");
+      const groupNameField = document.getElementById("groupNameField");
 
-      // Exit overlay elements
-      const exitOverlay              = document.getElementById("exitOverlay");
-      const exitOverlayMessage       = document.getElementById("exitOverlayMessage");
-      const exitOverlayStay          = document.getElementById("exitOverlayStay");
-      const exitOverlayLeave         = document.getElementById("exitOverlayLeave");
+      const exitOverlay = document.getElementById("exitOverlay");
+      const exitOverlayMessage = document.getElementById("exitOverlayMessage");
+      const exitOverlayStay = document.getElementById("exitOverlayStay");
+      const exitOverlayLeave = document.getElementById("exitOverlayLeave");
       const exitOverlayCountdownText = document.getElementById("exitOverlayCountdownText");
       const exitOverlayCountdownDigits = document.getElementById("exitOverlayCountdownDigits");
-      const exitOverlayStrike        = document.getElementById("exitOverlayStrike");
+      const exitOverlayStrike = document.getElementById("exitOverlayStrike");
 
-      // Translation sentinel – detects automatic translation
       const langSentinel = document.getElementById("langSentinel");
       const langSentinelBaseline = langSentinel
         ? langSentinel.textContent.trim()
@@ -1023,6 +1300,7 @@
               "Possible page translation detected",
               `Sentinel changed from "${langSentinelBaseline}" to "${current}".`
             );
+
             askToExitExam(
               "Une modification automatique de la langue de la page a été détectée. " +
               "Merci de désactiver la traduction et de rester sur la version originale de l'épreuve.",
@@ -1034,7 +1312,7 @@
 
       const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
-      // Safe-blur for Part A dropdowns (iOS)
+      // Safe blur on selects
       document.querySelectorAll("#partA select").forEach(sel => {
         sel.addEventListener("mousedown", () => {
           if (isMobile) armSafeBlur(1500);
@@ -1042,9 +1320,36 @@
         sel.addEventListener("touchstart", () => {
           if (isMobile) armSafeBlur(2000);
         });
+        
+        sel.addEventListener("change", updatePartAProgress);
       });
 
-      // Session activity log
+      function updatePartAProgress() {
+        const selects = document.querySelectorAll("#partA select");
+        let answered = 0;
+        selects.forEach(sel => {
+          if (sel.selectedIndex > 0) {
+            answered++;
+          }
+        });
+        
+        const counter = document.getElementById("partAAnswered");
+        if (counter) {
+          counter.textContent = answered;
+          
+          const progress = document.getElementById("partAProgress");
+          if (progress) {
+            if (answered === 10) {
+              progress.style.background = "#dcfce7";
+              progress.style.color = "#166534";
+            } else {
+              progress.style.background = "#f1f5f9";
+              progress.style.color = "#64748b";
+            }
+          }
+        }
+      }
+
       const sessionEvents = [];
 
       function formatTimeStamp(date = new Date()) {
@@ -1069,7 +1374,6 @@
         console.log("[SESSION]", entry);
       }
 
-      // Check required nodes
       const required = [
         login, confirmSec, exam, startBtn, confirmBackBtn, confirmBeginBtn,
         confirmName, confirmEmail, confirmGroup, partA, partB, toPartA, toPartB,
@@ -1081,9 +1385,8 @@
         return;
       }
 
-      // State flags
       let examSubmitted = false;
-      let examActive    = false;
+      let examActive = false;
       let isStartingExam = false;
       let exitPromptOpen = false;
       let antiCheatSuspendedUntil = 0;
@@ -1105,6 +1408,11 @@
           console.error("Error clearing timer in resetToLanding:", e);
         }
 
+        if (timerDisplay) {
+          timerDisplay.textContent = "";
+          timerDisplay.style.display = "none";
+        }
+
         if (exitCountdownTimer) {
           clearInterval(exitCountdownTimer);
           exitCountdownTimer = null;
@@ -1122,21 +1430,21 @@
         if (form) form.reset();
         if (quill) quill.setText("");
 
-        studentFirstNameInput.value = "";
-        studentLastNameInput.value  = "";
-        studentEmailInput.value     = "";
-        classCodeInput.value        = "";
-        groupSelect.value           = "";
-        selectedGroup               = "";
-        currentExamTitle            = EXAM_CONFIG.examTitleBase;
+        if (studentFirstNameInput) studentFirstNameInput.value = "";
+        if (studentLastNameInput) studentLastNameInput.value = "";
+        if (studentEmailInput) studentEmailInput.value = "";
+        if (classCodeInput) classCodeInput.value = "";
+        if (groupSelect) groupSelect.value = "";
+        selectedGroup = "";
+        currentExamTitle = EXAM_CONFIG.examTitleBase;
 
         if (titleHeader) {
           titleHeader.textContent = currentExamTitle;
         }
 
-        login.style.display    = "block";
+        login.style.display = "block";
         confirmSec.style.display = "none";
-        exam.style.display     = "none";
+        exam.style.display = "none";
 
         if (exitOverlay) exitOverlay.style.display = "none";
 
@@ -1159,16 +1467,18 @@
           const s = totalSec % 60;
 
           if (timerDisplay) {
-            timerDisplay.textContent = `Time Remaining: ${m}:${s.toString().padStart(2, "0")}`;
+            timerDisplay.textContent = `Temps restant : ${m}:${s.toString().padStart(2, "0")}`;
 
             if (totalSec > 5 * 60) {
-              timerDisplay.style.background  = "#ffffff";
-              timerDisplay.style.color       = "#111827";
-              timerDisplay.style.borderColor = "#4b5563";
+              timerDisplay.style.background = "linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)";
+              timerDisplay.style.color = "#ffffff";
+              timerDisplay.style.borderColor = "#2563eb";
+              timerDisplay.style.boxShadow = "0 4px 12px rgba(37, 99, 235, 0.25)";
             } else {
-              timerDisplay.style.background  = "#fee2e2";
-              timerDisplay.style.color       = "#b91c1c";
-              timerDisplay.style.borderColor = "#b91c1c";
+              timerDisplay.style.background = "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)";
+              timerDisplay.style.color = "#ffffff";
+              timerDisplay.style.borderColor = "#dc2626";
+              timerDisplay.style.boxShadow = "0 4px 16px rgba(220, 38, 38, 0.35)";
             }
           }
 
@@ -1221,7 +1531,7 @@
         if (Date.now() < antiCheatSuspendedUntil) return;
 
         violationCount += 1;
-
+        
         if (exitOverlayStrike) {
           const warnIndex = Math.min(violationCount, MAX_WARNINGS);
           exitOverlayStrike.textContent = `AVERTISSEMENT ${warnIndex} / ${MAX_WARNINGS}`;
@@ -1234,7 +1544,6 @@
 
         const sourceText = source ? `${source} – ` : "";
 
-        // Third event → auto-submit
         if (violationCount >= MAX_VIOLATIONS) {
           logEvent(
             "Anti-cheat limit reached",
@@ -1280,7 +1589,6 @@
 
         setOverlayActive(true);
 
-        // Start 15-second countdown
         exitSecondsRemaining = 15;
         if (exitOverlayCountdownText) {
           exitOverlayCountdownText.textContent =
@@ -1327,7 +1635,6 @@
         }, 1000);
       }
 
-      // Overlay buttons
       if (exitOverlayStay) {
         exitOverlayStay.addEventListener("click", () => {
           if (exitCountdownTimer) {
@@ -1374,12 +1681,10 @@
         });
       }
 
-      // Force LAST NAME uppercase
       studentLastNameInput.addEventListener("input", () => {
         studentLastNameInput.value = studentLastNameInput.value.toUpperCase();
       });
 
-      // Anti-cheat listeners
       document.addEventListener("visibilitychange", () => {
         if (isStartingExam) {
           console.log("⏱ Ignoring visibilitychange during exam startup");
@@ -1456,25 +1761,24 @@
         }
       });
 
-      // Start from clean landing state
       resetToLanding();
 
       function beginExam() {
         const firstName = (studentFirstNameInput.value || "").trim();
-        const lastName  = (studentLastNameInput.value  || "").trim().toUpperCase();
-        const email     = (studentEmailInput.value     || "").trim();
-        const code      = (classCodeInput.value        || "").trim();
-        const group     = selectedGroup || (groupSelect.value || "").trim();
+        const lastName = (studentLastNameInput.value || "").trim().toUpperCase();
+        const email = (studentEmailInput.value || "").trim();
+        const code = (classCodeInput.value || "").trim();
+        const group = selectedGroup || (groupSelect.value || "").trim();
 
         const fullName = `${lastName} ${firstName}`;
 
-        studentNameField.value  = fullName;
+        studentNameField.value = fullName;
         studentEmailField.value = email;
-        classCodeField.value    = code;
-        groupNameField.value    = group;
+        classCodeField.value = code;
+        groupNameField.value = group;
 
         confirmSec.style.display = "none";
-        exam.style.display       = "block";
+        exam.style.display = "block";
         partA.classList.add("active");
         partB.classList.remove("active");
 
@@ -1483,7 +1787,7 @@
           titleHeader.textContent = currentExamTitle;
         }
 
-        examActive    = true;
+        examActive = true;
         examSubmitted = false;
         violationCount = 0;
 
@@ -1496,7 +1800,7 @@
         } else {
           console.log("⏱ Using existing examDeadline:", new Date(examDeadline).toISOString());
           if (Date.now() > examDeadline) {
-            alert("Le délai de 40 minutes est écoulé. Vous ne pouvez plus commencer l'épreuve.");
+            alert("Le délai de l'épreuve est écoulé. Vous ne pouvez plus commencer.");
             examActive = false;
             exam.style.display = "none";
             login.style.display = "block";
@@ -1510,19 +1814,22 @@
           console.log("⏱ Startup grace period over");
         }, 1200);
 
+        if (timerDisplay) {
+          timerDisplay.style.display = "inline-block";
+        }
         enableFullScreen();
         startTimer();
         randomizeQuestionOrder();
         randomizeSelectsKeepFirst();
+        initDefinitionPreviews();
       }
 
-      // Start → Confirm
       startBtn.addEventListener("click", () => {
         const firstName = (studentFirstNameInput.value || "").trim();
-        const lastName  = (studentLastNameInput.value  || "").trim().toUpperCase();
-        const email     = (studentEmailInput.value     || "").trim();
-        const code      = (classCodeInput.value        || "").trim();
-        const group     = (groupSelect.value           || "").trim();
+        const lastName = (studentLastNameInput.value || "").trim().toUpperCase();
+        const email = (studentEmailInput.value || "").trim();
+        const code = (classCodeInput.value || "").trim();
+        const group = (groupSelect.value || "").trim();
 
         if (!firstName || !lastName || !email) {
           alert("Merci de remplir toutes les informations (nom, prénom et e-mail).");
@@ -1534,8 +1841,8 @@
           return;
         }
 
-        const isDebug    = code === EXAM_CONFIG.debugCode;
-        const isRealClass= code === EXAM_CONFIG.classCode;
+        const isDebug = code === EXAM_CONFIG.debugCode;
+        const isRealClass = code === EXAM_CONFIG.classCode;
 
         if (!isDebug && !isRealClass) {
           alert("Code de classe invalide.");
@@ -1543,31 +1850,31 @@
         }
 
         const fullName = `${lastName} ${firstName}`;
-        selectedGroup  = group;
+        selectedGroup = group;
 
-        confirmName.textContent  = fullName;
+        confirmName.textContent = fullName;
         confirmEmail.textContent = email;
         confirmGroup.textContent = group;
 
-        login.style.display   = "none";
+        login.style.display = "none";
         confirmSec.style.display = "block";
       });
 
       confirmBackBtn.addEventListener("click", () => {
         confirmSec.style.display = "none";
-        login.style.display      = "block";
+        login.style.display = "block";
       });
 
       confirmBeginBtn.addEventListener("click", () => {
         beginExam();
       });
 
-      // Navigation Part A <-> Part B
       toPartB.addEventListener("click", () => {
         partA.classList.remove("active");
         partB.classList.add("active");
         logEvent("Moved to Part B", "Student navigated from Part A to Part B");
         ensureQuill();
+        updateWordCount();
       });
 
       toPartA.addEventListener("click", () => {
@@ -1588,14 +1895,14 @@
         clearInterval(timer);
 
         if (submitBtn) {
-          submitBtn.disabled  = true;
+          submitBtn.disabled = true;
           submitBtn.textContent = "Envoi en cours…";
         }
 
         logEvent("Exam submitted", autoReason || "Student clicked submit");
 
         const fd = new FormData(form);
-        const name  = fd.get("studentName")  || studentNameField.value;
+        const name = fd.get("studentName") || studentNameField.value;
         const email = fd.get("studentEmail") || studentEmailField.value;
 
         let minutesUsed = EXAM_CONFIG.timeLimitMinutes;
@@ -1606,14 +1913,14 @@
         }
 
         const emailHtml = quill ? quill.root.innerHTML.trim() : "<em>(No response)</em>";
-        const totalQs   = document.querySelectorAll('#partA select[name^="q"]').length || 10;
+        const totalQs = document.querySelectorAll('#partA select[name^="q"]').length || 10;
 
         let scoreA = 0;
         let partARowsHTML = "";
         for (let i = 1; i <= totalQs; i++) {
-          const sel  = fd.get("q" + i) || "No answer";
+          const sel = fd.get("q" + i) || "No answer";
           const corr = correctAnswers["q" + i] || "";
-          const ok   = sel === corr;
+          const ok = sel === corr;
           if (ok) scoreA++;
           const mark = ok ? "✅ Correct" : `❌ Incorrect → Correct answer: ${corr}`;
           partARowsHTML += `
@@ -1625,10 +1932,9 @@
         }
 
         const partBScore = "___ / 10";
-        const finalNote  = "___ / 20";
-        const group      = selectedGroup || groupNameField.value || EXAM_CONFIG.classLabel;
+        const finalNote = "___ / 20";
+        const group = selectedGroup || groupNameField.value || EXAM_CONFIG.classLabel;
 
-        // Session activity log HTML
         let sessionLogHTML = "";
         if (sessionEvents.length > 0) {
           const rows = sessionEvents.map(ev => `
@@ -1708,14 +2014,43 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td style="padding:8px;border:1px solid #ccc;">Vocabulary Use</td><td style="padding:8px;border:1px solid #ccc;">/3</td><td style="padding:8px;border:1px solid #ccc;">___ / 3</td></tr>
-              <tr><td style="padding:8px;border:1px solid #ccc;">Structure & Clarity</td><td style="padding:8px;border:1px solid #ccc;">/3</td><td style="padding:8px;border:1px solid #ccc;">___ / 3</td></tr>
-              <tr><td style="padding:8px;border:1px solid #ccc;">Language Accuracy & Tone</td><td style="padding:8px;border:1px solid #ccc;">/2</td><td style="padding:8px;border:1px solid #ccc;">___ / 2</td></tr>
-              <tr><td style="padding:8px;border:1px solid #ccc;">Professional Style</td><td style="padding:8px;border:1px solid #ccc;">/2</td><td style="padding:8px;border:1px solid #ccc;">___ / 2</td></tr>
+              <tr>
+                <td style="padding:8px;border:1px solid #ccc;">Vocabulary Use</td>
+                <td style="padding:8px;border:1px solid #ccc;">/3</td>
+                <td style="padding:8px;border:1px solid #ccc;">___ / 3</td>
+              </tr>
+              <tr>
+                <td style="padding:8px;border:1px solid #ccc;">Structure &amp; Clarity</td>
+                <td style="padding:8px;border:1px solid #ccc;">/3</td>
+                <td style="padding:8px;border:1px solid #ccc;">___ / 3</td>
+              </tr>
+              <tr>
+                <td style="padding:8px;border:1px solid #ccc;">Language Accuracy &amp; Tone</td>
+                <td style="padding:8px;border:1px solid #ccc;">/2</td>
+                <td style="padding:8px;border:1px solid #ccc;">___ / 2</td>
+              </tr>
+              <tr>
+                <td style="padding:8px;border:1px solid #ccc;">Professional Style</td>
+                <td style="padding:8px;border:1px solid #ccc;">/2</td>
+                <td style="padding:8px;border:1px solid #ccc;">___ / 2</td>
+              </tr>
             </tbody>
           </table>
-          <p style="margin:12px 0 6px 0;"><b>Part B Score:</b> ${partBScore}</p>
 
+          <h4 style="color:#004080;margin:12px 0 6px 0;">Instructor Comments:</h4>
+          <div style="
+            border:1px solid #d1d5db;
+            border-radius:8px;
+            padding:10px 12px;
+            background:#f9fafb;
+            font-size:14px;
+            line-height:1.5;
+          ">
+            <!-- Write your comments here when correcting the exam -->
+          </div>
+
+          <p style="margin:12px 0 6px 0;"><b>Part B Score:</b> ${partBScore}</p>
+          
           <hr style="border:none;border-top:1px solid #ddd;margin:16px 0;">
 
           <h4 style="color:#004080;margin:10px 0 8px 0;">Score Summary</h4>
