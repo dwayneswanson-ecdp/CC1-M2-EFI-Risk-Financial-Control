@@ -2101,10 +2101,15 @@
               resetToLanding();
             })
             .catch(err => {
-              alert(
-                "❌ Erreur lors de l'envoi de l'épreuve : " +
-                (err && err.text ? err.text : err)
-              );
+  const errMsg = err?.text || err?.message || JSON.stringify(err) || "Erreur inconnue";
+  alert("❌ Erreur lors de l'envoi de l'épreuve : " + errMsg);
+  console.error("EmailJS Error:", err);
+  examSubmitted = false;
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Envoyer l'épreuve";
+  }
+});
               console.error("EmailJS Error:", err);
               examSubmitted = false;
               if (submitBtn) {
