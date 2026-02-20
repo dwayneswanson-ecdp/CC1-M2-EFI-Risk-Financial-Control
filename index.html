@@ -2110,13 +2110,6 @@
     submitBtn.textContent = "Envoyer l'épreuve";
   }
 });
-              console.error("EmailJS Error:", err);
-              examSubmitted = false;
-              if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = "Envoyer l'épreuve";
-              }
-            });
         } else {
           alert("EmailJS n'est pas chargé ; envoi simulé.");
           examSubmitted = false;
